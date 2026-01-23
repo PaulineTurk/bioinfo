@@ -1,0 +1,6 @@
+STANDARDS_AA = set("ACDEFGHIKLMNPQRSTVWY")
+
+BLOSUM_ORDER = [
+    'C', 'S', 'T', 'P', 'A', 'G', 'N', 'D', 'E', 'Q',
+    'H', 'R', 'K', 'M', 'I', 'L', 'V', 'F', 'Y', 'W'
+    ]

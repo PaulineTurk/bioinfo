@@ -1,0 +1,13 @@
+# Environnement
+.venv
+.vscode
+
+# Python
+__pycache__
+#TODO: add in README modOp
+*.egg-info
+
+# Data and results
+*db*
+*result*
+*.seed
