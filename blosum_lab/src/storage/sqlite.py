@@ -67,13 +67,10 @@ class DatabaseBlosumStore:
         )
         self.conn.commit()
     
-    #TODO: add test
     def get_all_pfam(self)-> set[str]:
         query = "SELECT DISTINCT pfam FROM sequence"
         cursor =  self.conn.execute(query)
         return {row[0] for row in cursor.fetchall()}
-    
-
 
 
     def init_cluster(self, threshold: int):
@@ -103,7 +100,6 @@ class DatabaseBlosumStore:
             )
         self.conn.commit()
 
-    #TODO: refactor with get_all_pfam
     def get_all_pairwise_identity(self, pfam: str):
         query = f"SELECT pfam, id1, id2, identity FROM pairwise_identity WHERE pfam=?"
         cursor = self.conn.execute(query, (pfam, ))
