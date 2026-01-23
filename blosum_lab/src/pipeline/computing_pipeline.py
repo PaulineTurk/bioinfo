@@ -12,9 +12,8 @@ def run(
         reference_matrix:str, 
         matrix_difference_path:str):
     store = DatabaseBlosumStore(db_path)
-    #TODO: renommer result en clusters elements ..
-    result = store.get_clusters(threshold)
-    total_pair = counting.global_count(result, pairwise_count_file)
+    clusters = store.get_clusters(threshold)
+    total_pair = counting.global_count(clusters, pairwise_count_file)
     pij = counting.compute_pij(total_pair)
     pi = counting.compute_pi(pij)
     counting.run_sanity_checks(pij, pi)
