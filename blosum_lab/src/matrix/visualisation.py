@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn 
 import pandas
 import numpy 
-from data.amino_acids import BLOSUM_ORDER
+from matrix.blosum import BLOSUM_ORDER
 from collections import Counter
 from Bio.Align import substitution_matrices
 

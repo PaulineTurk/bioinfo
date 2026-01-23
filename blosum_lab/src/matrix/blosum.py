@@ -1,8 +1,12 @@
-from data.amino_acids import BLOSUM_ORDER
 from collections import Counter
 from math import log2
 from tqdm import tqdm
 from config import BlosumConfig
+
+BLOSUM_ORDER = [
+    'C', 'S', 'T', 'P', 'A', 'G', 'N', 'D', 'E', 'Q',
+    'H', 'R', 'K', 'M', 'I', 'L', 'V', 'F', 'Y', 'W'
+    ]
 
 def compute_log_2_odds_matrix(
         pair_frequency: Counter, 
