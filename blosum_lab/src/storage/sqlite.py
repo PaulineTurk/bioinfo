@@ -109,25 +109,6 @@ class DatabaseBlosumStore:
         cursor = self.conn.execute(query, (pfam, ))
         return {row for row in cursor.fetchall()}
     
-
-    #TODO: to delete
-    def get_random_representatives_with_seq(self, threshold: int):
-        table_name = f"cluster_{threshold}"
-        query = f"""
-            SELECT pfam, id, seq_id, seq
-            FROM (
-                SELECT c.pfam, c.id, c.seq_id, s.seq
-                FROM {table_name} c
-                JOIN sequence s
-                ON c.seq_id = s.id
-                AND c.pfam = s.pfam
-                ORDER BY RANDOM()
-            )
-            GROUP BY pfam, id;
-        """
-        cursor = self.conn.execute(query)
-        return cursor.fetchall()
-    
     def get_clusters(self, threshold: int):
         table_name = f"cluster_{threshold}"
         query = f"""
