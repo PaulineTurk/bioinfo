@@ -10,6 +10,8 @@ class BlosumConfig:
     IDENTITY_THRESHOLD:float = 62
     MIN_PFAM_SIZE: int = 10
     ROUNDING_BLOSUM_STANDARD = 2
+    STANDARDS_AA = set("ACDEFGHIKLMNPQRSTVWY")
+
 
     @classmethod
     def load_test_config(self):

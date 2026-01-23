@@ -1,7 +1,7 @@
 from itertools import combinations
 from typing import Iterable, Tuple
 from data.models import PfamBlock
-from data.amino_acids import STANDARDS_AA
+from config import BlosumConfig
 
 
 def compute_identity_on_block(
@@ -25,7 +25,7 @@ def compute_identity(
     comparable = 0
 
     for a, b in zip(seq1, seq2):
-        if a in STANDARDS_AA and b in STANDARDS_AA:
+        if a in BlosumConfig.STANDARDS_AA and b in BlosumConfig.STANDARDS_AA:
             comparable += 1
             matches += (a==b)
     return 100*matches//comparable if comparable > 0 else 0

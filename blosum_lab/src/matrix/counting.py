@@ -1,6 +1,5 @@
 from collections import defaultdict, Counter
 from itertools import combinations
-from data.amino_acids import STANDARDS_AA
 from tqdm import tqdm
 import pickle
 from pathlib import Path
@@ -23,7 +22,7 @@ def count_aa_by_column(pfam_rows):
         column = []
         for row in pfam_rows:
             aa = row[SEQ_POSITION][index]
-            if aa in STANDARDS_AA:
+            if aa in BlosumConfig.STANDARDS_AA:
                 column.append((aa, row[WEIGHT_POSITION]))
         if len(column) < 2:
             continue
@@ -61,7 +60,7 @@ def compute_pij(total_pair):
     return safe_divide(total_pair, total)
 
 def compute_pi(pij):
-    pi = {aa:0.0 for aa in STANDARDS_AA}
+    pi = {aa:0.0 for aa in BlosumConfig.STANDARDS_AA}
     for (a,b), v in pij.items():
         if a==b:
             pi[a] += v
